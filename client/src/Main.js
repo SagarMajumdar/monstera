@@ -111,7 +111,9 @@ const Main =({socket,socketn}) => {
                     <div className="navbar-item">
                         {user &&  <>hello {user.info.name}</>}
                         <div style={{marginLeft:'10px',cursor:'pointer'}} onClick={
-                                    ()=>{ setNotiOpen((prev) => {return !prev } ) }
+                                    ()=>{ setNotiOpen((prev) => {return !prev }  );
+                                          getNoti();  
+                                        }
                             }>
                                 <span className="tag is-danger">
                                     notification
@@ -164,7 +166,8 @@ const Main =({socket,socketn}) => {
                     </div>
                     {notiOpen &&
                     <div className="column is-one-fifth">
-                        <Noti  socket={socket} noti={noti} getNoti={getNoti} fnCallgetChannels={fnCallgetChannels}>  </Noti>
+                        <Noti  
+                        noti={noti} getNoti={getNoti} fnCallgetChannels={fnCallgetChannels}>  </Noti>
                     </div>
                     }
                 </div>
